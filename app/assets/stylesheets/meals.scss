@@ -1,0 +1,26 @@
+// Place all the styles related to the static-pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//@import "bootstrap-sprockets";
+//@import "bootstrap";
+//@import "foundation_and_overrides";
+//@import "foundation";
+
+$background: #66BD46;
+$darker: #308411;
+$lighter: #B2E99E;
+$dark: #49AA25;
+$light: #8CDA6F;
+
+html, body {
+	background-color: $background !important;
+}
+
+.button {
+	background-color: $darker !important;
+}
+
+a:link {
+   color: $lighter;
+}

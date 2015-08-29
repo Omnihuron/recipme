@@ -1,0 +1,38 @@
+<div class="row">
+
+	<div class="large-10 large-push-2 columns">
+		<h1><%= @meal.name %></h1>
+		<br/>
+		<h2>Ingredients:</h2>
+		<br/>
+		<ul>
+		<% @meal.ingredients_list.each do |ingredient| %>
+			<li><%= "#{ingredient.name}: 
+				#{ingredient.quantity} #{ingredient.quantity_units}" %></li>
+		<% end %>
+		</ul>
+	</div>
+
+	<div class="large-2 large-pull-10 columns">
+	  <div class="icon-bar vertical five-up">
+	  	<%= link_to meals_path, class: "item" do %>
+		    <i class="fa fa-arrow-left"></i>
+		    <label>Back</label>
+		  <% end %>
+		  <a class="item">
+		    <i class="fa fa-pencil"></i>
+		    <label>Edit Meal</label>
+		  </a>
+		  <a class="item">
+		    <i class="fa fa-trash-o"></i>
+		    <label>Delete Meal</label>
+		  </a>
+		  <a class="item">
+		    <i class="fa fa-cart-plus"></i>
+		    <label>Add to This Week</label>
+		  </a>
+		</div>
+	</div>
+
+	
+</div>
