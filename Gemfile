@@ -28,6 +28,7 @@ gem 'rails_12factor', group: :production
 
 gem 'foundation-rails'
 gem 'font-awesome-rails'
+gem 'seed_dump'
 
 
 # Use ActiveModel has_secure_password
