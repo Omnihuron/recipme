@@ -1,16 +1,28 @@
 <div class="row">
 
-	<div class="large-10 large-push-2 columns">
-		<h1><%= @meal.name %></h1>
+	<div class="show-meal large-10 large-push-3 columns">
+		<h1 class="meal-title"><%= @meal.name %></h1>
 		<br/>
-		<h2>Ingredients:</h2>
+		<h2><em>Ingredients:</em></h2>
 		<br/>
-		<ul>
-		<% @meal.ingredients_list.each do |ingredient| %>
-			<li><%= "#{ingredient.name}: 
-				#{ingredient.quantity} #{ingredient.quantity_units}" %></li>
-		<% end %>
-		</ul>
+		<table>
+			<thead>
+				<th>Name</th>
+				<th>Quantity</th>
+				<th>Unit</th>
+				<th>Modify</th>
+			</thead>
+			<tbody>
+				<% @meal.ingredients_list.each do |ingredient| %>
+					<tr>
+						<td><%= ingredient.name %></td> 
+						<td><%= ingredient.quantity %></td>
+						<td><%= ingredient.quantity_units %></td>
+						<td>Edit / Delete</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
 	</div>
 
 	<div class="large-2 large-pull-10 columns">
@@ -18,6 +30,10 @@
 	  	<%= link_to meals_path, class: "item" do %>
 		    <i class="fa fa-arrow-left"></i>
 		    <label>Back</label>
+		  <% end %>
+		  <%= link_to new_meal_ingredient_path(@meal), class: "item" do %>
+		    <i class="fa fa-plus"></i>
+		    <label>Add Ingredient</label>
 		  <% end %>
 		  <a class="item">
 		    <i class="fa fa-pencil"></i>

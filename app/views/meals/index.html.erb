@@ -8,6 +8,7 @@
           <h5 class="subheader">
           	Here you can find all your delicious meal ideas!
           </h5>
+          <%= link_to "New Meal", new_meal_path, class: "button" %>
         </div>
       </div>
 
@@ -16,7 +17,7 @@
           <div class="row">
             <% slice.each do |meal| %>
               <div class="large-4 small-6 columns end" id="image-block">
-                <%= image_tag meal.image %>
+                <%= image_tag meal.image, class: 'meal-image' %>
     
                 <div class="panel">
                   <h4 class="meal-title"><%= meal.name %></h4>

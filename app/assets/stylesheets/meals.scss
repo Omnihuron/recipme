@@ -24,3 +24,23 @@ html, body {
 a:link {
    color: $lighter;
 }
+
+.show-meal {
+	.meal-title {
+		font-size: 5em;
+	}
+
+	em {
+		font-style: italic;
+	}
+
+	td {
+		font-size: 2em; 
+	}
+
+	tbody {
+		tr {
+			height: 100px;
+		}
+	}
+}
