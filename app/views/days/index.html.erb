@@ -1,0 +1,46 @@
+<h1>Days</h1>
+
+<div class="row">
+	<% @days.each do |day| %>
+		<div class="large-3 columns end day-block">
+      <div class="panel">
+        <h4 class="day-title"><%= day.name %></h4>
+        <h6 class="subheader">
+        	<hr/>
+        	<% if day.meals.length == 0 %>
+        		<p>No meals for today</p>
+        	<% else %>
+        		<ul class="sortable">
+	        		<% day.day_meals.each do |meal| %>
+	        			<li>
+	        				<i class="fa fa-ellipsis-v"></i>
+	        				<!-- <span class="ui-icon ui-icon-grip-dotted-vertical"></span> -->
+		        			<%= image_tag meal.image %>
+		        			<div class="day-meal-name">
+		        				<span><%= meal.name %></span>
+		        			</div>
+		        			
+		        			<!-- <div class="modify">
+		        				<i class="fa fa-times-circle-o"></i>
+		        				<i class="fa fa-eye"></i>
+		        			</div> -->
+	        			</li>
+	        		<% end %>
+        		</ul>
+        	<% end %>
+        </h6>
+      </div>
+    </div>
+	<% end %>
+	<a href="#" class="large-3 columns end button">Grocery List</a>
+</div>
+
+
+
+
+<script>
+	$(function() {
+	  $( ".sortable" ).sortable();
+	  $( ".sortable" ).disableSelection();
+	});
+</script>

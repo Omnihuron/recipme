@@ -1,0 +1,47 @@
+.day-block {
+
+	.panel {
+		height: 300px;
+	}
+
+	.day-title {
+		text-align: center;
+	}
+
+	img {
+		width: 50px;
+		border-style: solid;
+		border-color: black;
+		border-width: 2px;
+		float: left;
+	}
+	ul {
+		list-style-type: none;
+		margin-left: 0;
+	}
+	.fa-ellipsis-v {
+		padding-right: 10px;
+		float: left;
+		padding-top: 15px;
+	}
+	li {
+		margin-top: 10px;
+		// background-color: #77dd77;
+		background-color: #8CDA6F;
+		padding: 10px;
+		border-radius: 10px;
+		height: 70px;
+
+		.day-meal-name {
+			margin-left: 70px;
+			vertical-align: top;
+			//width: 50px;
+		}
+
+		.modify {
+			float: clear;
+			// width: 30px;
+		}
+		
+	}
+}

@@ -30,7 +30,7 @@ gem 'foundation-rails'
 gem 'font-awesome-rails'
 gem 'seed_dump'
 gem 'simple_form'
-
+gem 'jquery-ui-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

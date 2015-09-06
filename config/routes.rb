@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     resources :ingredients
   end
 
+  resources :days
+
   get 'ingredients' => 'ingredients#new'
 
   # Example resource route with sub-resources:
