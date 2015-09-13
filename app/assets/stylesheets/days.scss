@@ -1,7 +1,7 @@
 .day-block {
 
 	.panel {
-		height: 300px;
+		height: 340px;
 	}
 
 	.day-title {
@@ -18,19 +18,22 @@
 	ul {
 		list-style-type: none;
 		margin-left: 0;
+		height: 240px;
+		overflow: auto;
 	}
 	.fa-ellipsis-v {
 		padding-right: 10px;
 		float: left;
 		padding-top: 15px;
 	}
-	li {
+	.meal {
 		margin-top: 10px;
 		// background-color: #77dd77;
 		background-color: #8CDA6F;
 		padding: 10px;
 		border-radius: 10px;
 		height: 70px;
+
 
 		.day-meal-name {
 			margin-left: 70px;
@@ -43,5 +46,17 @@
 			// width: 30px;
 		}
 		
+	}
+
+	.placeholder {
+		margin-top: 10px;
+		// background-color: #77dd77;
+		// background-color: #8CDA6F;
+		border-style: dashed;
+    border-width: 3px;
+    border-color: #8CDA6F;
+		padding: 10px;
+		border-radius: 10px;
+		height: 70px;
 	}
 }

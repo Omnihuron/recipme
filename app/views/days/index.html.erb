@@ -1,4 +1,6 @@
-<h1>Days</h1>
+<div class="row">
+	
+</div>
 
 <div class="row">
 	<% @days.each do |day| %>
@@ -7,23 +9,18 @@
         <h4 class="day-title"><%= day.name %></h4>
         <h6 class="subheader">
         	<hr/>
-        	<% if day.meals.length == 0 %>
-        		<p>No meals for today</p>
+        	<% if day.meals.nil? || day.meals.length == 0 %>
+        		<ul class="sortable" id="<%= day.number %>">
+        		</ul>
         	<% else %>
-        		<ul class="sortable">
+        		<ul class="sortable" id="<%= day.number %>">
 	        		<% day.day_meals.each do |meal| %>
-	        			<li>
+	        			<li class="meal" meal="<%=meal.id%>">
 	        				<i class="fa fa-ellipsis-v"></i>
-	        				<!-- <span class="ui-icon ui-icon-grip-dotted-vertical"></span> -->
 		        			<%= image_tag meal.image %>
 		        			<div class="day-meal-name">
 		        				<span><%= meal.name %></span>
 		        			</div>
-		        			
-		        			<!-- <div class="modify">
-		        				<i class="fa fa-times-circle-o"></i>
-		        				<i class="fa fa-eye"></i>
-		        			</div> -->
 	        			</li>
 	        		<% end %>
         		</ul>
@@ -36,11 +33,26 @@
 </div>
 
 
-
-
 <script>
 	$(function() {
-	  $( ".sortable" ).sortable();
+	  $( ".sortable" ).sortable({
+		  update: function( event, ui ) {
+		  	$('.placeholder').remove();
+		  	// debugger
+		  	$.ajax({
+			    url: "/days/"+event.target.id,
+			    type: 'PUT',
+			    data: { meals: $(event.target).sortable("toArray", {attribute: "meal"}) },
+			    error: function(result) {
+			    	alert("Uh oh! Something went wrong! Try reloading this page");
+			    }
+				});
+		  }
+		});
+		$( ".sortable" ).sortable({
+      connectWith: ".sortable",
+      placeholder: "placeholder"
+    });
 	  $( ".sortable" ).disableSelection();
 	});
 </script>
