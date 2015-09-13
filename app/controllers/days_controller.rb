@@ -1,6 +1,7 @@
 class DaysController < ApplicationController
 
 	def index
+		@meals = Meal.all
 		@days = Day.all.order(number: :asc)
 	end
 

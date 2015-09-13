@@ -1,5 +1,19 @@
 <div class="row">
-	
+	<div class="large-12 columns">
+		<div class="meal-box panel">
+			<ul>
+				<% @meals.each do |meal| %>
+			  	<li class="meal draggable" meal="<%=meal.id%>">
+			  		<i class="fa fa-ellipsis-v"></i>
+      			<%= image_tag meal.image %>
+      			<div class="day-meal-name">
+      				<span><%= meal.name %></span>
+      			</div>
+    			</li>
+			  <% end %>
+			</ul>
+		</div>
+	</div>
 </div>
 
 <div class="row">
@@ -54,5 +68,12 @@
       placeholder: "placeholder"
     });
 	  $( ".sortable" ).disableSelection();
+
+	  $( ".draggable" ).draggable({
+      connectToSortable: ".sortable",
+      helper: "clone",
+      revert: "invalid",
+      stack: ".draggable"
+    });
 	});
 </script>

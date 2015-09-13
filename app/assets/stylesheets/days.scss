@@ -60,3 +60,54 @@
 		height: 70px;
 	}
 }
+
+.ui-draggable-dragging {
+	width: 178px;
+}
+
+.meal-box {
+	height: 110px;
+	border-style: solid;
+  border-width: 3px;
+  border-color: black;
+
+  .meal {
+		// margin-top: 10px;
+		// background-color: #77dd77;
+		background-color: #8CDA6F;
+		padding: 10px;
+		border-radius: 10px;
+		height: 70px;
+		width: 178px;
+		display: inline;
+		float: left;
+		margin-right: 10px;
+
+
+		.day-meal-name {
+			margin-left: 70px;
+			vertical-align: top;
+			//width: 50px;
+		}
+
+		.modify {
+			float: clear;
+			// width: 30px;
+		}
+
+		img {
+			width: 50px;
+			border-style: solid;
+			border-color: black;
+			border-width: 2px;
+			float: left;
+		}
+
+		.fa-ellipsis-v {
+			padding-right: 10px;
+			float: left;
+			padding-top: 15px;
+		}
+		
+	}
+}
