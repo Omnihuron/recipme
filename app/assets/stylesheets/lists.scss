@@ -1,0 +1,43 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
+$background: #66BD46;
+
+.list {
+	border-collapse: collapse;
+	border: none;
+	width: 100%;
+
+	tr, td {
+		font-family: 'Roboto Condensed', sans-serif;
+		font-size: 1.7em;
+		@media only screen and (max-width: 600px) {
+  		font-size: 1em;
+		}
+	}
+
+	tr:nth-child(even) {
+	    background-color: #49AA25;
+	}
+
+	tr:nth-child(odd) {
+	    background-color: #8CDA6F;
+	}
+
+	.name {
+		text-align: right;
+	}
+
+	.quantity {
+		width: 100px;
+		padding-top: 25px;
+		text-align: right;
+	}
+
+	.unit {
+		width: 200px;
+	}
+
+	.switch {
+		padding-top: 25px;
+	}
+
+}

@@ -4,8 +4,12 @@ class Day < ActiveRecord::Base
 	# attr_accessor :meals
 
 	def day_meals
-		meals.map do |meal|
-			Meal.find(meal.to_i)
+		if meals.present?
+			meals.map do |meal|
+				Meal.find(meal.to_i)
+			end
+		else
+			[]
 		end
 	end
 end
