@@ -2,21 +2,14 @@
 	<div class="large-8 large-centered columns">
 		<h1>Grocery List</h1>
 		<table class="list">
-<!-- 			<tr>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
-			</tr> -->
-
 			<% @ingredients.each do |i| %>
-				<tr>
+				<tr id="row_<%=i.id%>">
 					<td class="name"><%= i.name %></td>
 		      <td class="quantity"><input type="text" value="<%= i.quantity %>"/></td>
 					<td class="unit"><%= i.quantity_units %></td>
 					<td>
 						<div class="switch radius">
-						  <input id="switch_<%=i.id%>" checked type="checkbox">
+						  <input id="switch_<%=i.id%>" checked type="checkbox" data-id="<%=i.id%>" data-initial="<%=i.purchased%>">
 						  <label for="switch_<%=i.id%>"></label>
 						</div> 
 					</td>
@@ -25,3 +18,35 @@
 		</table>
 	</div>
 </div>
+
+<script>
+	$(function() {
+
+		//darken rows that are already purchased WIP
+		getRow($("[data-initial='false']")).css("background-color", "DimGray");
+
+	  $("input[id^='switch_']").click(function() {
+	  	id = $(this).data("id")
+	  	el = $("#row_"+id)
+	  	if($(this).is(':checked')){
+	  		light(el, id)
+	  	}else{
+	  		dim(el, id)
+	  	}
+		});
+
+		function getRow(box) {
+			id = box.data("id")
+	  	return $("#row_"+id)
+		}
+
+		function dim(el, id) {
+			el.css("background-color", "DimGray");
+		}
+
+		function light(el, id) {
+			el.css("background-color", "#49AA25");
+		}
+
+	});
+</script>
