@@ -22,13 +22,12 @@
 		overflow: auto;
 	}
 	.fa-ellipsis-v {
-		padding-right: 10px;
 		float: left;
-		padding-top: 15px;
+		padding: 15px 10px 15px 0;
 	}
 	.meal {
+		cursor: move;
 		margin-top: 10px;
-		// background-color: #77dd77;
 		background-color: #8CDA6F;
 		padding: 10px;
 		border-radius: 10px;
@@ -38,20 +37,17 @@
 		.day-meal-name {
 			margin-left: 70px;
 			vertical-align: top;
-			//width: 50px;
 		}
 
-		.modify {
-			float: clear;
-			// width: 30px;
+		.fa-times {
+			float: right;
+			color: #CC0000;
+			cursor: pointer;
 		}
-		
 	}
 
 	.placeholder {
 		margin-top: 10px;
-		// background-color: #77dd77;
-		// background-color: #8CDA6F;
 		border-style: dashed;
     border-width: 3px;
     border-color: #8CDA6F;
@@ -72,8 +68,6 @@
   border-color: black;
 
   .meal {
-		// margin-top: 10px;
-		// background-color: #77dd77;
 		background-color: #8CDA6F;
 		padding: 10px;
 		border-radius: 10px;
@@ -90,7 +84,6 @@
 
 		.modify {
 			float: clear;
-			// width: 30px;
 		}
 
 		img {
@@ -106,6 +99,5 @@
 			float: left;
 			padding-top: 15px;
 		}
-		
 	}
 }

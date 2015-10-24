@@ -31,6 +31,7 @@
 	        		<% day.day_meals.each do |meal| %>
 	        			<li class="meal" meal="<%=meal.id%>">
 	        				<i class="fa fa-ellipsis-v"></i>
+		        			<i class="fa fa-times remove" id="<%= day.number %>"></i>
 		        			<%= image_tag meal.image %>
 		        			<div class="day-meal-name">
 		        				<span><%= meal.name %></span>
@@ -52,21 +53,16 @@
 	  $( ".sortable" ).sortable({
 		  update: function( event, ui ) {
 		  	$('.placeholder').remove();
-		  	// debugger
-		  	$.ajax({
-			    url: "/days/"+event.target.id,
-			    type: 'PUT',
-			    data: { meals: $(event.target).sortable("toArray", {attribute: "meal"}) },
-			    error: function(result) {
-			    	alert("Uh oh! Something went wrong! Try reloading this page");
-			    }
-				});
+		  	id = event.target.id
+		  	updateDay(id)
 		  }
 		});
+
 		$( ".sortable" ).sortable({
       connectWith: ".sortable",
       placeholder: "placeholder"
     });
+
 	  $( ".sortable" ).disableSelection();
 
 	  $( ".draggable" ).draggable({
@@ -75,5 +71,23 @@
       revert: "invalid",
       stack: ".draggable"
     });
+
+    $(".remove").click(function() {
+    	id = $(this).attr("id")
+  		$(this).parent().remove();
+  		updateDay(id)
+		});
+
+		function updateDay(id){
+			el = $("#"+id)
+			$.ajax({
+		    url: "/days/"+id,
+		    type: 'PUT',
+		    data: { meals: el.sortable("toArray", {attribute: "meal"}) },
+		    error: function(result) {
+		    	alert("Uh oh! Something went wrong! Try reloading this page");
+		    }
+			});
+		}
 	});
 </script>
