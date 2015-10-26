@@ -22,22 +22,48 @@
 <script>
 	$(function() {
 
-		//darken rows that are already purchased WIP
-		getRow($("[data-initial='false']")).css("background-color", "DimGray");
+		$("input[id^='switch_']").click(function() {
+	  	id = $(this).data("id");
+	  	el = $("#row_"+id);
 
-	  $("input[id^='switch_']").click(function() {
-	  	id = $(this).data("id")
-	  	el = $("#row_"+id)
 	  	if($(this).is(':checked')){
-	  		light(el, id)
+	  		light(el, id);
+	  		purchase(id, false);
 	  	}else{
-	  		dim(el, id)
+	  		dim(el, id);
+	  		purchase(id, true);
 	  	}
 		});
 
+		darkenPurchased();
+
+		function darkenPurchased() {
+			switches = $("[data-initial='true']");
+			switches.click();
+
+			$.each(switches, function(index, item) {
+				getRow($(item)).css("background-color", "DimGray");
+			});
+		}
+
+		function purchase(id, status) {
+			$.ajax({
+		    url: "/lists/"+id,
+		    type: 'PUT',
+		    data: { status: status },
+		    error: function(result) {
+		    	alert("Uh oh! Something went wrong! Try reloading this page");
+		    }
+			});
+		}
+
+		function unpurchase(id) {
+
+		}
+
 		function getRow(box) {
-			id = box.data("id")
-	  	return $("#row_"+id)
+			id = box.data("id");
+	  	return $("#row_"+id);
 		}
 
 		function dim(el, id) {
@@ -47,6 +73,5 @@
 		function light(el, id) {
 			el.css("background-color", "#49AA25");
 		}
-
 	});
 </script>
