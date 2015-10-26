@@ -5,7 +5,7 @@
 		<%= simple_form_for [@meal, @ingredient] do |f| %>
 			<%= f.input  :name %>
 			<%= f.input  :quantity %>
-			<%= f.input  :quantity_units, collection: ["Package", "Cups", "Oz", "Lbs"] %>
+			<%= f.input  :quantity_units, collection: @units %>
 			<%= f.button :submit %>
 		<% end %>
 	</div>
