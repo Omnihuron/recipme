@@ -3,6 +3,7 @@
 	<div class="show-meal large-10 large-push-3 columns">
 		<h1 class="meal-title"><%= @meal.name %></h1>
 		<br/>
+		<p><%= link_to "Recipe", @meal.recipe, target: "_blank" %></p>
 		<h2><em>Ingredients:</em></h2>
 		<br/>
 		<table>
@@ -15,7 +16,7 @@
 			<tbody>
 				<% @meal.ingredients_list.each do |ingredient| %>
 					<tr>
-						<td><%= ingredient.name %></td> 
+						<td><%= ingredient.name %></td>
 						<td><%= ingredient.quantity %></td>
 						<td><%= ingredient.quantity_units %></td>
 						<td>Edit / Delete</td>
@@ -35,10 +36,10 @@
 		    <i class="fa fa-plus"></i>
 		    <label>Add Ingredient</label>
 		  <% end %>
-		  <a class="item">
+		  <%= link_to edit_meal_path(@meal), class: "item" do %>
 		    <i class="fa fa-pencil"></i>
 		    <label>Edit Meal</label>
-		  </a>
+		  <% end %>
 		  <a class="item">
 		    <i class="fa fa-trash-o"></i>
 		    <label>Delete Meal</label>
@@ -50,5 +51,5 @@
 		</div>
 	</div>
 
-	
+
 </div>

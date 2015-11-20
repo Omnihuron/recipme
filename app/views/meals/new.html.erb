@@ -1,8 +1,9 @@
 <div class="row">
-	<div class="large-6 large-centered columns">  
+	<div class="large-6 large-centered columns">
 		<%= simple_form_for @meal do |f| %>
 			<%= f.input :name %>
 			<%= f.input :image %>
+      <%= f.input :recipe %>
 			<%= f.button :submit, 'Create Meal' %>
 		<% end %>
 		<h2>You can add the ingredients after creating your meal</h2>
